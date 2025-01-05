@@ -2,8 +2,9 @@ import { useState } from 'react';
 import './App.css';
 
 import Navbar from './componets/Navbar';
+import Home  from './componets/Home';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-// import Header from './componets/Header'; // Correct case and path
 function App() {
   const [mode,setmode]=useState('light');
   const togglemode=()=>{
@@ -18,14 +19,21 @@ function App() {
     }
   }
   return (
-    <>
-      <div>
-        
-       <Navbar mode={mode} togglemode={togglemode}/>
-<header/>
 
+     <Router>
+      <Navbar mode={mode} togglemode={togglemode} />
+      {/* <Alert alert={alert} /> */}
+      <div className="container my-3">
+        <h1>Welcome to this website</h1>
+        <Routes>
+          {/* <Route path="/about" element={<About />} /> */}
+          <Route path="/Home" element={<Home />} />
+          {/* <Route path="/" element={<div>Home Page Content</div>} /> */}
+        </Routes>
       </div>
-    </>
+    </Router>
+    
+
   );
 }
 
